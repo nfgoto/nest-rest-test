@@ -8,10 +8,15 @@ describe('Poi Controller', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PoiController],
-      providers: [PoiService],
+      providers: [
+        {
+          provide: PoiService,
+          useValue: {},
+        },
+      ],
     })
-      .overrideProvider(PoiService)
-      .useValue({})
+      // .overrideProvider(PoiService)
+      // .useValue({})
       .compile();
 
     controller = module.get<PoiController>(PoiController);
