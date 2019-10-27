@@ -5,7 +5,6 @@ import { PoiService } from '../../../poi/services/poi/poi.service';
 export class PoiController {
     constructor(
         private readonly poiService: PoiService,
-    ){}
-
+    ) {}
 
 }

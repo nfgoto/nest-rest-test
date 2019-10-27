@@ -20,19 +20,22 @@ describe('AppController', () => {
       controllers: [AppController],
       providers: [
         AppService,
-        PoiService,
+        {
+          provide: PoiService,
+          useValue: {},
+        },
         {
           provide: getConnectionToken(),
           useValue: {},
         },
-        {
-          provide: getModelToken('Poi'),
-          useValue: PoiModel,
-        },
+        // {
+        //   provide: getModelToken('Poi'),
+        //   useValue: PoiModel,
+        // },
       ],
     })
-      .overrideProvider(PoiService)
-      .useValue(PoiService)
+      // .overrideProvider(PoiService)
+      // .useValue({})
       .compile();
 
     appController = app.get<AppController>(AppController);
